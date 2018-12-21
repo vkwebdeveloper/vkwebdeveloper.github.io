@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Help Screen</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+        <link href="assets/css/introjs.css" rel="stylesheet" type="text/css"/>
+        <link href="assets/css/introjs-nassim.css" rel="stylesheet" type="text/css"/>
+        <!--<link href="assets/css/introjs-modern.css" rel="stylesheet" type="text/css"/>-->
+        <!--<link href="assets/css/introjs-dark.css" rel="stylesheet" type="text/css"/>-->
+        <!--<link href="assets/css/introjs-flattener.css" rel="stylesheet" type="text/css"/>-->
+        <!--<link href="assets/css/introjs-nazanin.css" rel="stylesheet" type="text/css"/>-->
+        <!--<link href="assets/css/introjs-royal.css" rel="stylesheet" type="text/css"/>-->
+    </head>
+    <body>
+        <header>
+            <nav class="navbar navbar-inverse">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <a class="navbar-brand" href="#">WebSiteName</a>
+                    </div>
+                    <ul class="nav navbar-nav">
+                        <li class="active"><a href="#">Home</a></li>
+                        <li><a href="#">Page 1</a></li>
+                        <li><a href="#">Page 2</a></li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+                        <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+
+        <div class="container">
+            <div class="jumbotron" data-step="1" data-intro="First of all Intro.">
+                <h1>Bootstrap Tutorial</h1> 
+                <p>Bootstrap is the most popular HTML, CSS, and JS framework for developing
+                    responsive, mobile-first projects on the web.</p> 
+            </div>
+        </div>
+
+        <div class="container" data-step="2" data-intro="Then you can login your account.">
+            <form class="form-inline" action="/action_page.php">
+                <div class="form-group">
+                    <label for="email">Email address:</label>
+                    <input type="email" class="form-control" id="email">
+                </div>
+                <div class="form-group">
+                    <label for="pwd">Password:</label>
+                    <input type="password" class="form-control" id="pwd">
+                </div>
+                <div class="checkbox">
+                    <label><input type="checkbox"> Remember me</label>
+                </div>
+                <button type="submit" class="btn btn-default">Submit</button>
+            </form>
+        </div>
+
+        <div class="container" data-step="3" data-intro="And see your media panel.">
+            <h2>Media Object</h2>
+            <p>Use the "media-left" class to left-align a media object. Text that should appear next to the image, is placed inside a container with class="media-body".</p>
+            <p>Tip: Use the "media-right" class to right-align the media object.</p><br>
+
+            <!-- Left-aligned media object -->
+            <div class="media" data-step="4" data-intro="Media screen left panel">
+                <div class="media-left" data-step="6" data-intro="User Profile Image">
+                    <img src="https://www.w3schools.com/booTsTrap/img_avatar1.png" class="media-object" style="width:60px">
+                </div>
+                <div class="media-body">
+                    <h4 class="media-heading">Left-aligned</h4>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                </div>
+            </div>
+            <hr>
+
+            <!-- Right-aligned media object -->
+            <div class="media" data-step="5" data-intro="Media screen right panel">
+                <div class="media-body">
+                    <h4 class="media-heading">Right-aligned</h4>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                </div>
+                <div class="media-right">
+                    <img src="https://www.w3schools.com/booTsTrap/img_avatar1.png" class="media-object" style="width:60px">
+                </div>
+            </div>
+        </div>
+        <script src="assets/js/jquery.min.js" type="text/javascript"></script>
+        <script src="assets/js/intro.js" type="text/javascript"></script>
+        <script>
+//            if (document.cookie.indexOf("visited") >= 0) {
+//                introJs().exit();
+//            }
+//            else {
+//                // set a new cookie..//
+//                var cookieExpiry = new Date();
+//                cookieExpiry.setTime(cookieExpiry.getTime() + (8 * 3600 * 1000)); // 8 hours //
+//                document.cookie = "visited=yes; expires=" + cookieExpiry.toGMTString();
+//                startIntro();
+//            }
+            
+            function startIntro() {
+                var intro = introJs();
+                intro.setOption('tooltipPosition', 'auto');
+                intro.setOption('positionPrecedence', ['left', 'right', 'top', 'bottom']);
+                intro.setOption('skipLabel', 'Exit');
+                intro.start();
+                intro.onexit(function() {
+                    introJs().exit();
+                });
+                intro.oncomplete(function(){
+                    introJs().exit();
+                });
+            }startIntro();
+        </script>
+    </body>
+</html>
